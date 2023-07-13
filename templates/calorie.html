@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            background-image: url("https://cdn.glitch.global/ead8ee89-7fa6-4c84-8bec-b087cedb7299/cal.jpg?v=1689271152177");
+            background-size: cover;
+            background-position: center;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .form-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="form-container">
+            <h1>Calorie Burnt Prediction</h1>
+            <hr>
+            <form action="/hp" method="post">
+                <table border="1">
+                    <tr>
+                        <td>Age</td>
+                        <td><input type="text" name="age"></td>
+                    </tr>
+                    <tr>
+                        <td>Heart Rate</td>
+                        <td>
+                            <input type="text" name="Heart_Rate">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Body Temperature</td>
+                        <td>
+                            <input type="text" name="Body_Temp">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" align="center">
+                            <input type="submit" value="Prediction2">
+                            <input type="reset" value="Clear">
+                        </td>
+                    </tr>
+                </table>
+            </form>
+            {{ data }}
+            <hr>
+        </div>
+    </div>
+</body>
+</html>
