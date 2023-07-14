@@ -7,27 +7,27 @@ from  sklearn.linear_model import LinearRegression
 app = Flask(__name__) 
 
 @app.route('/') 
-def first(): 
+def index(): 
   return render_template('index.html') 
 
 @app.route('/r') # open the form for result prediction  
-def second(): 
+def predict(): 
   return  render_template('calorie.html') 
 
-@app.route('/hp', methods = ['POST'] ) 
-def housepricepredict(): 
+@app.route('/cp', methods = ['POST'] ) 
+def caloriesburntpredict(): 
   location='Whitefield'
-  sqft  = eval ( request.form.get ( "area") )
-  bath  = eval ( request.form.get ( "bath") )
-  bhk   = eval ( request.form.get ( "bhk") )
+  Age  = eval ( request.form.get ( "Age") )
+  Heart_Rate  = eval ( request.form.get ( "Heart_Rate") )
+  Body_Temp   = eval ( request.form.get ( "Body_Temp") )
   # predict and save the output in result variable
-  url   = "bhp.csv"
+  url   = "cbp.csv"
   df = pd.read_csv(url)
-  X = df.drop(['price'],axis='columns')
-  y = df["price"]
+  X = df.drop(['ID','Calories'],axis='columns')
+  Y = df["Calories"]
   from sklearn.linear_model import LinearRegression
   model = LinearRegression()
-  model.fit(X,y)
+  model.fit(X,Y)
   loc_index = np.where(X.columns==location)[0][0]
 
   x = np.zeros(len(X.columns))
