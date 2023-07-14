@@ -16,7 +16,7 @@ def predict():
 
 @app.route('/cp', methods = ['POST'] ) 
 def caloriesburntpredict(): 
-  location='Whitefield'
+  # location='Whitefield'
   Age  = eval ( request.form.get ( "Age") )
   Heart_Rate  = eval ( request.form.get ( "Heart_Rate") )
   Body_Temp   = eval ( request.form.get ( "Body_Temp") )
@@ -28,17 +28,18 @@ def caloriesburntpredict():
   from sklearn.linear_model import LinearRegression
   model = LinearRegression()
   model.fit(X,Y)
-  loc_index = np.where(X.columns==location)[0][0]
+#   loc_index = np.where(X.columns==location)[0][0]
 
-  x = np.zeros(len(X.columns))
-  x[1] = Age
-  x[2] = Duration
-  x[3] = Heart_Rate
-  x[4] = Body_Temp
-  if loc_index >= 0:
-      x[loc_index] = 1
-        
-  hp = model.predict([x])[0]
+#   x = np.zeros(len(X.columns))
+#   x[1] = Age
+#   x[2] = Duration
+#   x[3] = Heart_Rate
+#   x[4] = Body_Temp
+#   if loc_index >= 0:
+#       x[loc_index] = 1
+        # ethe ki kariye ???
+  arr=model.predict([[Age,Duration,Heart_Rate,Body_Parts]])
+  hp = model.predict([X])
   return " Calories Burnt "  + str(hp) 
 
 
