@@ -31,14 +31,15 @@ def caloriesburntpredict():
   loc_index = np.where(X.columns==location)[0][0]
 
   x = np.zeros(len(X.columns))
-  x[0] = sqft
-  x[1] = bath
-  x[2] = bhk
+  x[0] = Age
+  x[1] = Duration
+  x[2] = Heart_Rate
+  x[3] = Body_Temp
   if loc_index >= 0:
       x[loc_index] = 1
         
   hp = model.predict([x])[0]
-  return " House price predicted as (in lakhs ) "  + str(hp) 
+  return " Calories Burnt "  + str(hp) 
 
 
 if __name__ == '__main__': 
