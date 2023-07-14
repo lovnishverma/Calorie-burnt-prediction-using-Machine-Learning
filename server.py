@@ -31,10 +31,10 @@ def caloriesburntpredict():
   loc_index = np.where(X.columns==location)[0][0]
 
   x = np.zeros(len(X.columns))
-  x[0] = Age
-  x[1] = Duration
-  x[2] = Heart_Rate
-  x[3] = Body_Temp
+  x[1] = Age
+  x[2] = Duration
+  x[3] = Heart_Rate
+  x[4] = Body_Temp
   if loc_index >= 0:
       x[loc_index] = 1
         
