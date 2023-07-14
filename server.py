@@ -12,7 +12,7 @@ def index():
 
 @app.route('/r') # open the form for result prediction  
 def predict(): 
-  return  render_template('calorie.html') 
+  return  render_template('calorie') 
 
 @app.route('/cp', methods = ['POST'] ) 
 def caloriesburntpredict(): 
