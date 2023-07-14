@@ -18,6 +18,7 @@ def predict():
 def caloriesburntpredict(): 
   # location='Whitefield'
   Age  = eval ( request.form.get ( "Age") )
+  Duration=eval(request.form.get("Duration"))
   Heart_Rate  = eval ( request.form.get ( "Heart_Rate") )
   Body_Temp   = eval ( request.form.get ( "Body_Temp") )
   # predict and save the output in result variable
@@ -38,9 +39,9 @@ def caloriesburntpredict():
 #   if loc_index >= 0:
 #       x[loc_index] = 1
         # ethe ki kariye ???
-  arr=model.predict([[Age,Duration,Heart_Rate,Body_Parts]])
-  hp = model.predict([X])
-  return " Calories Burnt "  + str(hp) 
+  arr=model.predict([[Age,Duration,Heart_Rate,Body_Temp]])
+  # hp = model.predict([X])
+  return " Calories Burnt "  + str(arr[0])
 
 
 if __name__ == '__main__': 
