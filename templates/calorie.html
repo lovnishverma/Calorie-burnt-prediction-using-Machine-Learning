@@ -2,17 +2,22 @@
 <html>
 <head>
     <style>
+        /* Styling for the background image */
         body {
             background-image: url("https://cdn.glitch.global/ead8ee89-7fa6-4c84-8bec-b087cedb7299/cal.jpg?v=1689271152177");
             background-size: cover;
             background-position: center;
         }
+
+        /* Styling for the container div */
         .container {
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
         }
+
+        /* Styling for the form container */
         .form-container {
             background-color: white;
             padding: 20px;
@@ -21,32 +26,37 @@
     </style>
 </head>
 <body>
+    <!-- The container div that centers the content on the page -->
     <div class="container">
+        <!-- The form-container div that contains the form for input and result display -->
         <div class="form-container">
             <h1>Calorie Burnt Prediction</h1>
             <hr>
+            <!-- The form that submits the input to the Flask app at the '/cp' route using the POST method -->
             <form action="/cp" method="post">
                 <table border="1">
+                    <!-- Input fields for Age, Duration, Heart Rate, and Body Temperature -->
                     <tr>
                         <td>Age</td>
-                        <td><input type="text" name="Age"></td>
+                        <td><input type="text" name="Age" required></td>
                     </tr>
                     <tr>
-                    <td>Duration</td>
-                        <td><input type="text" name="Duration"></td>
+                        <td>Duration</td>
+                        <td><input type="text" name="Duration" required></td>
                     </tr>
                     <tr>
                         <td>Heart Rate</td>
                         <td>
-                            <input type="text" name="Heart_Rate">
+                            <input type="text" name="Heart_Rate" required>
                         </td>
                     </tr>
                     <tr>
                         <td>Body Temperature</td>
                         <td>
-                            <input type="text" name="Body_Temp">
+                            <input type="text" name="Body_Temp" required>
                         </td>
                     </tr>
+                    <!-- Submit and Reset buttons -->
                     <tr>
                         <td colspan="2" align="center">
                             <input type="submit" value="Submit">
@@ -55,9 +65,10 @@
                     </tr>
                 </table>
             </form>
-          <h1>
-            {{ data }}
-          </h1>  
+            <!-- Placeholder for displaying the prediction result returned from Flask app -->
+            <h1>
+                {{ data }}
+            </h1>
             <hr>
         </div>
     </div>
