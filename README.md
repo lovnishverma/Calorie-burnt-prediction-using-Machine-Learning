@@ -3,7 +3,7 @@
 _Last updated:  2023
 
 Live Demo:
-[Calorie Burnt Prediction](https://calorieburntprediction.glitch.me/)
+[Calorie Burnt Prediction](https://calorie-burnt-prediction-using-machine.onrender.com/)
 
 ## What's in this project?
 
